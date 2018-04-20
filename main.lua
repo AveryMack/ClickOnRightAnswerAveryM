@@ -1,9 +1,9 @@
 -----------------------------------------------------------------------------------------
 -- main.lua
--- Created by: Gil Robern
--- Modified by: Your Name
--- Date: Month Day, Year
--- Description: This calls the splash screen of the app to load itself.
+-- Title: Click on Right Answer
+-- Name: Avery Mack
+-- Course: ICS2O/3C
+-- This program calls the splash screen of the app to load itself.
 -----------------------------------------------------------------------------------------
 
 -- Hiding Status Bar

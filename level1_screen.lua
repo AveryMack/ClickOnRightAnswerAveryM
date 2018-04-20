@@ -91,6 +91,7 @@ local function DetermineAnswers()
     answer = firstNumber + secondNumber
     wrongAnswer1 = answer + math.random(1,4)
     wrongAnswer2 = answer + math.random(5,8)
+    wrongAnswer3 = answer + math.random(9,12) 
 end
 
 -- Function that changes the answers for a new question and places them randomly in one of the positions
@@ -100,24 +101,28 @@ local function DisplayAnswers( )
     answerTextObject.text = tostring( answer )
     wrongAnswer1TextObject.text = tostring( wrongAnswer1 )
     wrongAnswer2TextObject.text = tostring( wrongAnswer2 )
+    wrongAnswer3TextObject.text = tostring( wrongAnswer3 )
 
     if (answerPosition == 1) then                
         
-        answerTextObject.x = display.contentWidth*.3        
-        wrongAnswer1TextObject.x = display.contentWidth*.2
-        wrongAnswer2TextObject.x = display.contentWidth*.1 
+        answerTextObject.x = display.contentWidth*.4       
+        wrongAnswer1TextObject.x = display.contentWidth*.3
+        wrongAnswer2TextObject.x = display.contentWidth*.2
+        wrongAnswer3TextObject.x = display.contentWidth*.1  
 
     elseif (answerPosition == 2) then
        
         answerTextObject.x = display.contentWidth*.2        
         wrongAnswer1TextObject.x = display.contentWidth*.1
         wrongAnswer2TextObject.x = display.contentWidth*.3 
+        wrongAnswer3TextObject.x = display.contentWidth*.5 
 
     else
        
         answerTextObject.x = display.contentWidth*.1        
         wrongAnswer1TextObject.x = display.contentWidth*.2
         wrongAnswer2TextObject.x = display.contentWidth*.3
+        wrongAnswer3TextObject.x = display.contentWidth*.4
     end
 
 end
@@ -278,6 +283,7 @@ function scene:create( event )
     answerTextObject = display.newText("", display.contentWidth*.4, display.contentHeight/2, nil, 50 )
     wrongAnswer1TextObject = display.newText("", display.contentWidth*.3, display.contentHeight/2, nil, 50 )
     wrongAnswer2TextObject = display.newText("", display.contentWidth*.2, display.contentHeight/2, nil, 50 )
+    wrongAnswer3TextObject = display.newText ("", display.contentWidth *.1, display.contentHeight/2, nil, 50 )
     numberCorrectText = display.newText("", display.contentWidth*4/5, display.contentHeight*6/7, nil, 25)
 
     -- create the text object that will hold the number of lives
@@ -404,3 +410,19 @@ scene:addEventListener( "destroy", scene )
 -----------------------------------------------------------------------------------------
 
 return scene
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
