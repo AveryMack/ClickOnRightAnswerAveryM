@@ -88,7 +88,6 @@ local incorrectSoundChannel
 local bkgSound = audio.loadSound("Sounds/level1Music.wav")
 local bkgSoundChannel 
 
-bkgSoundChannel = audio.play(bkgSoundChannel)
 -----------------------------------------------------------------------------------------
 -- LOCAL FUNCTIONS
 -----------------------------------------------------------------------------------------
@@ -96,9 +95,9 @@ bkgSoundChannel = audio.play(bkgSoundChannel)
 local function DetermineAnswers()
     -- calculate the correct answer as well as the wrong answers
     answer = firstNumber + secondNumber
-    wrongAnswer1 = answer + math.random(1,4)
-    wrongAnswer2 = answer + math.random(5,8)
-    wrongAnswer3 = answer + math.random(9,12) 
+    wrongAnswer1 = answer + math.random(1,5)
+    wrongAnswer2 = answer + math.random(6,9)
+    wrongAnswer3 = answer + math.random(10,13) 
 end
 
 -- Function that changes the answers for a new question and places them randomly in one of the positions
@@ -119,17 +118,25 @@ local function DisplayAnswers( )
 
     elseif (answerPosition == 2) then
        
-        answerTextObject.x = display.contentWidth*.2        
+        answerTextObject.x = display.contentWidth*.3        
         wrongAnswer1TextObject.x = display.contentWidth*.1
-        wrongAnswer2TextObject.x = display.contentWidth*.3 
-        wrongAnswer3TextObject.x = display.contentWidth*.5 
+        wrongAnswer2TextObject.x = display.contentWidth*.4 
+        wrongAnswer3TextObject.x = display.contentWidth*.2
 
-    else
+    elseif (answerPosition == 3) then
        
-        answerTextObject.x = display.contentWidth*.1        
-        wrongAnswer1TextObject.x = display.contentWidth*.2
+        answerTextObject.x = display.contentWidth*.2        
+        wrongAnswer1TextObject.x = display.contentWidth*.4
         wrongAnswer2TextObject.x = display.contentWidth*.3
-        wrongAnswer3TextObject.x = display.contentWidth*.4
+        wrongAnswer3TextObject.x = display.contentWidth*.1
+
+    else 
+
+        answerTextObject.x = display.contentWidth*.1        
+        wrongAnswer1TextObject.x = display.contentWidth*.3
+        wrongAnswer2TextObject.x = display.contentWidth*.4
+        wrongAnswer3TextObject.x = display.contentWidth*.2
+
     end
 
 end
@@ -354,6 +361,7 @@ function scene:create( event )
     sceneGroup:insert( answerTextObject )
     sceneGroup:insert( wrongAnswer1TextObject )
     sceneGroup:insert( wrongAnswer2TextObject )
+    sceneGroup:insert( wrongAnswer3TextObject )
     sceneGroup:insert( congratulationText )
     sceneGroup:insert( correct )
     sceneGroup:insert( level1Text )
@@ -369,6 +377,7 @@ function scene:show( event )
     -- Creating a group that associates objects with the scene
     --local sceneGroup = self.view
     local phase = event.phase
+    bkgSoundChannel = audio.play(bkgSound)
 
 
     -----------------------------------------------------------------------------------------
