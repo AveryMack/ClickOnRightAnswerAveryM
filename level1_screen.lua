@@ -49,6 +49,7 @@ local secondNumber
 local answer 
 local wrongAnswer1
 local wrongAnswer2
+local wrongAnswer3
 
 -- the text object that will hold the addition equation
 local addEquationTextObject 
@@ -57,6 +58,7 @@ local addEquationTextObject
 local answerTextObject 
 local wrongAnswer1TextObject
 local wrongAnswer2TextObject
+local wrongAnswer3TextObject
 
 -- displays the number correct that the user has
 local numberCorrectText 
@@ -182,14 +184,8 @@ local function RestartScene()
     -- if they have 0 lives, go to the You Lose screen
     if (lives == 0) then
         composer.gotoScene("you_lose")
-    else 
 
-        DisplayAddEquation()
-        DetermineAnswers()
-        DisplayAnswers()
-    end
-
-    if (numberCorrect == 5) then 
+    elseif (numberCorrect == 5) then 
         composer.gotoScene("you_win")
 
     else 
